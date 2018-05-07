@@ -1,0 +1,44 @@
+{
+  "name": "doggies",
+  "version": "1.0.0",
+  "description": "Doggies React App",
+  "main": "index.ts",
+  "repository": "https://github.com/synthetiquely/doggies",
+  "author": "Anatoly Belobrovik",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "webpack-dev-server --hot --config ./webpack.config.js --mode development",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.4.0",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.12.1",
+    "webpack": "^4.8.0",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-pwa-manifest": "^3.6.2"
+  },
+  "dependencies": {
+    "glamor": "^2.20.40",
+    "glamorous": "^4.12.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-hot-loader": "^4.1.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0"
+  }
+}
