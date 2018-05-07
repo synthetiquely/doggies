@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWepbackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -23,10 +24,17 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
   plugins: [
     new CleanWebpackPlugin('dist', {}),
+    new MiniCssExtractPlugin({
+      filename: 'style.[contenthash].css',
+    }),
     new HtmlWepbackPlugin({
       inject: false,
       hash: true,
