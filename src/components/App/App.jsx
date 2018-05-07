@@ -1,3 +1,12 @@
 import React from 'react';
 
-export const App = () => <div>Hi</div>;
+import { Layout } from '../Layout/Layout';
+import { Header } from '../Header/Header';
+import { Content } from '../Content/Content';
+
+export const App = () => (
+  <Layout>
+    <Header />
+    <Content />
+  </Layout>
+);
