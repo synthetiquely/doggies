@@ -5,8 +5,11 @@ import { hot } from 'react-hot-loader';
 import { App } from './components/App/App';
 
 import { store } from './store/store';
+import { Api } from './api/api';
 
 import './index.css';
+
+export const api = new Api();
 
 render(
   <Provider store={store}>

@@ -38,6 +38,7 @@ module.exports = {
     new HtmlWepbackPlugin({
       inject: false,
       hash: true,
+      favicon: './src/favicon.ico',
       template: './src/index.html',
       filename: 'index.html',
     }),
