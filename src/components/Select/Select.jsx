@@ -18,17 +18,19 @@ const SelectLabel = glamorous.label({
 export const SelectOptions = glamorous.select({
   display: 'block',
   width: '100%',
+  height: '100%',
   margin: '0',
   padding: '12px 55px 15px 15px',
   appearance: 'none',
   border: 'none',
   outline: 'none',
   color: '#444',
+  textTransform: 'capitalize',
   backgroundColor: 'transparent',
   borderRadius: '0',
   cursor: 'pointer',
   '&::after': {
-    content: '',
+    content: "''",
     position: 'absolute',
     top: '0',
     right: '0',
@@ -43,8 +45,8 @@ export const SelectOptions = glamorous.select({
 
 const renderValues = options =>
   options.map(option => (
-    <option key={option.id} value={option.value}>
-      {option.value}
+    <option key={option} value={option}>
+      {option}
     </option>
   ));
 
@@ -66,10 +68,6 @@ Select.defaultProps = {
 Select.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-      .isRequired,
-  })).isRequired,
+  options: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])).isRequired,
   onChange: PropTypes.func.isRequired,
 };

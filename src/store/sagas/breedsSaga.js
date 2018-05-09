@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { BREEDS_FETCHED } from '../actions/actionTypes';
-import { setBreeds } from '../actions/breedsActions';
+import { setBreeds, setSelectedBreed } from '../actions/breedsActions';
 import { setLoading, setError } from '../actions/helpersActions';
 import { api } from '../../index';
 
@@ -13,6 +13,7 @@ function* callFetchBreeds() {
     yield put(setLoading(false));
     if (breeds.length) {
       yield put(setBreeds(breeds));
+      yield put(setSelectedBreed(breeds[0]));
     }
   } catch (error) {
     yield put(setLoading(false));
