@@ -14,7 +14,11 @@ export class Api {
     fetch(`${this.url}/breed/${breed}/images`).then(response =>
       response.json().then(json => json.message));
 
-  getRandomDoggo = async () =>
-    fetch(`${this.url}/breeds/image/random`).then(response =>
+  getRandomDoggo = async breed =>
+    fetch(`${this.url}/breed/${breed}/image/random`).then(response =>
+      response.json().then(json => json.message));
+
+  getRandomDoggos = async (limit = 15) =>
+    fetch(`${this.url}/breeds/image/random/${limit}`).then(response =>
       response.json().then(json => json.message));
 }
