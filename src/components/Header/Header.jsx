@@ -1,12 +1,12 @@
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 
-export const Header = glamorous.header({
-  gridArea: 'header',
-  gridColumn: '1 / -1',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: '#fff',
-  borderBottom: '1px solid rgba(0,0,0,.1)',
-});
+export const Header = styled.header`
+  grid-area: header;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+`;

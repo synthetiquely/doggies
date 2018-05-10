@@ -8,7 +8,9 @@ import { DogsForm } from '../DogsForm/DogsForm';
 
 export const App = () => (
   <Layout>
-    <Header><DogsForm /></Header>
+    <Header>
+      <DogsForm />
+    </Header>
     <Content>
       <Dogs />
     </Content>

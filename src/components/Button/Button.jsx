@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 import { Spinner } from '../Spinner/Spinner';
 
-const StyledButton = glamorous.button({
-  position: 'relative',
-  padding: '10px',
-  fontSize: '16px',
-  color: '#000',
-  border: '1px solid #ccc',
-  borderRadius: '5px',
-  outline: 'none',
-  backgroundColor: '#fff',
-  cursor: 'pointer',
-  ':hover,:active,:focus': {
-    borderColor: '#9c27b0',
-  },
-});
+const StyledButton = styled.button`
+  position: relative;
+  padding: 10px;
+  font-size: 16px;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+  &:hover, &:active, &:focus: {
+    bordercolor: #9c27b0;
+  }
+`;
 
 export const Button = ({ loading, ...rest }) => (
   <StyledButton {...rest}>

@@ -3,6 +3,12 @@
     [
       "env",
       {
+        "production": {
+          "plugins": [["emotion", { "hoist": true }]]
+        },
+        "development": {
+          "plugins": [["emotion", { "sourceMap": true, "autoLabel": true }]]
+        },
         "useBuiltIns": true,
         "targets": {
           "browsers": [">0.25%", "not ie 11", "not op_mini all"],
@@ -13,6 +19,7 @@
     "react"
   ],
   "plugins": [
+    ["emotion", { "sourceMap": true, "autoLabel": true }],
     "react-hot-loader/babel",
     "transform-class-properties",
     "transform-object-rest-spread",

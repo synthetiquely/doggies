@@ -1,12 +1,11 @@
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 
-export const Layout = glamorous.div({
-  height: '100%',
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gridTemplateRows: '120px 1fr',
-  gridTemplateAreas: `
-      "header"
-      "content"
-    `,
-});
+export const Layout = styled.div`
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 120px 1fr;
+  grid-template-areas:
+    'header'
+    'content';
+`;

@@ -1,22 +1,8 @@
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 
-export const Form = glamorous.form(
-  {
-    display: 'flex',
-    flexDirection: 'column',
-    maxWidth: '400px',
-  },
-  ({ inline }) => {
-    let styles = {};
-
-    if (inline) {
-      styles = {
-        ...styles,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-      };
-    }
-
-    return styles;
-  },
-);
+export const Form = styled.form`
+  display: flex;
+  flex-direction: ${props => (props.inline ? 'row' : 'column')};
+  justify-content: space-evenly;
+  max-width: 400px;
+`;

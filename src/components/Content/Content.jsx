@@ -1,8 +1,8 @@
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 
-export const Content = glamorous.main({
-  gridArea: 'content',
-  gridColumn: '1 / -1',
-  gridRow: '2 / 3',
-  backgroundColor: '#f8f8f8',
-});
+export const Content = styled.main`
+  grid-area: content;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  background-color: #f8f8f8;
+`;

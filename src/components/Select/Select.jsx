@@ -1,47 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 
-const SelectLabel = glamorous.label({
-  position: 'relative',
-  display: 'block',
-  maxWidth: '400px',
-  minWidth: '180px',
-  border: '1px solid #ccc',
-  borderRadius: '5px',
-  backgroundColor: '#fff',
-  ':hover,:active,:focus': {
-    borderColor: '#9c27b0',
-  },
-});
+const SelectLabel = styled.label`
+  position: relative;
+  display: block;
+  max-width: 400px;
+  min-width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: #9c27b0;
+  }
+`;
 
-export const SelectOptions = glamorous.select({
-  display: 'block',
-  width: '100%',
-  height: '100%',
-  margin: '0',
-  padding: '12px 55px 15px 15px',
-  appearance: 'none',
-  border: 'none',
-  outline: 'none',
-  color: '#444',
-  textTransform: 'capitalize',
-  backgroundColor: 'transparent',
-  borderRadius: '0',
-  cursor: 'pointer',
-  '&::after': {
-    content: "''",
-    position: 'absolute',
-    top: '0',
-    right: '0',
-    width: '50px',
-    height: '100%',
-    backgroundColor: '#000',
-  },
-  ':hover,:active,:focus': {
-    color: '#9c27b0',
-  },
-});
+export const SelectOptions = styled.select`
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 12px 55px 15px 15px;
+  appearance: none;
+  border: none;
+  outline: none;
+  color: #444;
+  text-transform: capitalize;
+  background-color: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-color: #000;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: #9c27b0;
+  }
+`;
 
 const renderValues = options =>
   options.map(option => (

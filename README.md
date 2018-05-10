@@ -20,7 +20,7 @@ API used: [Dog API](https://dog.ceo/dog-api/).
 * React
 * Redux
 * Redux-saga
-* Glamorous
+* Emotion
 * Jest
 * Webpack
 
