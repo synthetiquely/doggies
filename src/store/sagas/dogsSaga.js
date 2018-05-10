@@ -1,7 +1,8 @@
-import { call, put, take, takeEvery } from 'redux-saga/effects';
+import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { SELECTED_BREED_SET } from '../actions/actionTypes';
 import { setDogs } from '../actions/dogsActions';
 import { setLoading, setError } from '../actions/helpersActions';
+import { selectedBreedSelector } from '../selectors/selectors';
 import { api } from '../../index';
 
 function* callFetchDogsByBreed() {
@@ -9,7 +10,7 @@ function* callFetchDogsByBreed() {
   yield put(setError(null));
 
   try {
-    const breed = yield take(SELECTED_BREED_SET);
+    const breed = yield select(selectedBreedSelector);
     const dogs = yield call(api.getDoggosByBreed(breed));
     yield put(setLoading(false));
     if (dogs.length) {
