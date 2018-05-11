@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form } from '../Form/Form';
 import { Select } from '../Select/Select';
+import { Button } from '../Button/Button';
 import { setSelectedBreed } from '../../store/actions/breedsActions';
+import { fetchRandomDogs } from '../../store/actions/dogsActions';
 
 export class DogsFormComponent extends Component {
   handleChange = (event) => {
@@ -13,11 +15,15 @@ export class DogsFormComponent extends Component {
     }
   };
 
+  handleClick = () => {
+    this.props.fetchRandomDogs();
+  };
+
   render() {
     const { selectedBreed, breeds } = this.props;
     return (
-      <Form inline>
-        <p>Choose the breed</p>
+      <Form>
+        <p style={{ fontWeight: 600 }}>CHOOSE THE BREED</p>
         <Select
           id="breeds-select"
           name="breeds-select"
@@ -25,6 +31,10 @@ export class DogsFormComponent extends Component {
           options={breeds}
           onChange={this.handleChange}
         />
+        <p style={{ fontWeight: 600 }}>-- OR -- </p>
+        <Button type="button" colored onClick={this.handleClick}>
+          GO ALL RANDOM
+        </Button>
       </Form>
     );
   }
@@ -39,6 +49,7 @@ DogsFormComponent.propTypes = {
   selectedBreed: PropTypes.string,
   breeds: PropTypes.arrayOf(PropTypes.string),
   setSelectedBreed: PropTypes.func.isRequired,
+  fetchRandomDogs: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -46,6 +57,9 @@ const mapStateToProps = state => ({
   breeds: state.breeds.breeds,
 });
 
-export const DogsForm = connect(mapStateToProps, {
-  setSelectedBreed,
-})(DogsFormComponent);
+const mapDispatchToProps = dispatch => ({
+  setSelectedBreed: breed => dispatch(setSelectedBreed(breed)),
+  fetchRandomDogs: () => dispatch(fetchRandomDogs()),
+});
+
+export const DogsForm = connect(mapStateToProps, mapDispatchToProps)(DogsFormComponent);

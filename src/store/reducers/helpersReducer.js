@@ -1,8 +1,13 @@
-import { LOADING_SET, ERROR_SET } from '../actions/actionTypes';
+import {
+  LOADING_SET,
+  ERROR_SET,
+  PAGINATION_LIMIT_SET,
+} from '../actions/actionTypes';
 
 const initialState = {
   isLoading: false,
   error: null,
+  limit: 15,
 };
 
 export const helpersReducer = (state = initialState, action) => {
@@ -16,6 +21,11 @@ export const helpersReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+      };
+    case PAGINATION_LIMIT_SET:
+      return {
+        ...state,
+        limit: action.payload,
       };
     default:
       return state;

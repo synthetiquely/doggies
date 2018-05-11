@@ -46,7 +46,7 @@ module.exports = {
       name: 'Doggies',
       short_name: 'Doggies',
       description: 'My awesome Doggies App!',
-      background_color: '#9c27b0',
+      background_color: '#009688',
       icons: [
         {
           src: path.resolve('src/favicon.ico'),

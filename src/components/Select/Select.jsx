@@ -7,13 +7,13 @@ const SelectLabel = styled.label`
   display: block;
   max-width: 400px;
   min-width: 180px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #00796b;
+  border-radius: 0;
   background-color: #fff;
   &:hover,
   &:active,
   &:focus {
-    border-color: #9c27b0;
+    border-color: #00796b;
   }
 `;
 
@@ -27,7 +27,7 @@ export const SelectOptions = styled.select`
   border: none;
   outline: none;
   color: #444;
-  text-transform: capitalize;
+  text-transform: uppercase;
   background-color: transparent;
   border-radius: 0;
   cursor: pointer;
@@ -43,7 +43,7 @@ export const SelectOptions = styled.select`
   &:hover,
   &:active,
   &:focus {
-    color: #9c27b0;
+    color: #00796b;
   }
 `;
 

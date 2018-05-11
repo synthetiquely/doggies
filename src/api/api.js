@@ -11,14 +11,17 @@ export class Api {
       .then(breeds => transformBreeds(breeds));
 
   getDoggosByBreed = async breed =>
-    fetch(`${this.url}/breed/${breed}/images`).then(response =>
-      response.json().then(json => json.message));
+    fetch(`${this.url}/breed/${breed}/images`)
+      .then(response => response.json())
+      .then(json => json.message);
 
   getRandomDoggo = async breed =>
-    fetch(`${this.url}/breed/${breed}/image/random`).then(response =>
-      response.json().then(json => json.message));
+    fetch(`${this.url}/breed/${breed}/image/random`)
+      .then(response => response.json())
+      .then(json => json.message);
 
   getRandomDoggos = async (limit = 15) =>
-    fetch(`${this.url}/breeds/image/random/${limit}`).then(response =>
-      response.json().then(json => json.message));
+    fetch(`${this.url}/breeds/image/random/${limit}`)
+      .then(response => response.json())
+      .then(json => json.message);
 }
