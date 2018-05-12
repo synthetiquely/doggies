@@ -19,6 +19,6 @@ export const Spinner = styled('span')(props => ({
   margin: '5px',
   border: '5px solid #009688',
   borderTopColor: 'transparent',
-  borderRradius: '50%',
+  borderRadius: '40px',
   animation: `${spin} 1s linear infinite`,
 }));
