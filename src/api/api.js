@@ -16,7 +16,7 @@ export class Api {
       .then(json => json.message);
 
   getRandomDoggoByBreed = async breed =>
-    fetch(`${this.url}/breed/${breed}/image/random`, { mode: 'no-cors' })
+    fetch(`${this.url}/breed/${breed}/images/random`)
       .then(response => response.json())
       .then(json => json.message);
 

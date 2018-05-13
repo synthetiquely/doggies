@@ -4,8 +4,8 @@ import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { DogsListItem } from '../DogsListItem/DogsListItem';
 
 const renderDogs = (images, onClick) =>
-  images.map((image, index) => (
-    <DogsListItem key={image} image={image} onClick={onClick(index)} />
+  images.map(image => (
+    <DogsListItem key={image} image={image} onClick={onClick(image)} />
   ));
 
 export const DogsList = ({ images, onClick }) => (

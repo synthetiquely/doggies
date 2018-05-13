@@ -10,10 +10,17 @@ export class Dogs extends Component {
     isLoading: PropTypes.bool.isRequired,
     offset: PropTypes.number.isRequired,
     limit: PropTypes.number.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+    setSelectedDog: PropTypes.func.isRequired,
     setPaginationOffset: PropTypes.func.isRequired,
   };
 
-  onClick = id => () => console.log('Clicked!', id);
+  onClick = dog => () => {
+    this.props.setSelectedDog(dog);
+    this.props.history.push('/dog');
+  };
 
   changePaginationOffset = () => {
     const newOffset = this.props.offset + this.props.limit;

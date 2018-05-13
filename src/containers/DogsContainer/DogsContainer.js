@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { Dogs } from '../../components/Dogs/Dogs';
 import { selectPagiableDogs } from '../../store/selectors/selectors';
+import { setSelectedDog } from '../../store/actions/dogsActions';
 import { setPaginationOffset } from '../../store/actions/helpersActions';
 
 const mapStateToProps = state => ({
@@ -13,6 +14,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setPaginationOffset: offset => dispatch(setPaginationOffset(offset)),
+  setSelectedDog: dog => dispatch(setSelectedDog(dog)),
 });
 
 export const DogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dogs);
