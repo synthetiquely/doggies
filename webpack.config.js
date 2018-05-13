@@ -15,6 +15,10 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  devServer: {
+    historyApiFallback: true,
+    allowedHosts: ['https://dog.ceo'],
+  },
   module: {
     rules: [
       {

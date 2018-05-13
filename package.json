@@ -2,13 +2,14 @@
   "name": "doggies",
   "version": "1.0.0",
   "description": "Doggies React App",
-  "main": "index.ts",
+  "main": "index.js",
   "repository": "https://github.com/synthetiquely/doggies",
   "author": "Anatoly Belobrovik",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --hot --config ./webpack.config.js --mode development",
+    "start":
+      "webpack-dev-server --hot --config ./webpack.config.js --mode development",
     "build": "webpack --mode production"
   },
   "devDependencies": {
