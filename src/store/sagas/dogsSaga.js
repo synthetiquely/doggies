@@ -24,16 +24,16 @@ function* callFetchDogsByBreed() {
     const breed = yield select(selectedBreedSelector);
     const offset = yield select(setPaginationOffset);
 
-    if (offset > 0) {
-      yield put(setPaginationOffset(0));
-    }
-
     const dogs = yield call(api.getDoggosByBreed, breed);
 
     yield put(setLoading(false));
 
     if (dogs.length) {
       yield put(setDogs(dogs));
+      if (offset > 0) {
+        yield put(setPaginationOffset(0));
+      }
+  
     }
   } catch (error) {
     yield put(setLoading(false));
