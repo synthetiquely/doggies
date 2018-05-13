@@ -17,7 +17,8 @@ const StyledButton = styled.button`
   &:hover,
   &:active,
   &:focus {
-    background-color: ${props => (props.colored ? '#00796b' : '#fff')};
+    color: #fff;
+    background-color: #00796b;
     border-color: #00796b;
   }
 `;
