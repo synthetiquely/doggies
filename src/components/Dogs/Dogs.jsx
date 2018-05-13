@@ -6,20 +6,12 @@ import { NoResults } from '../NoResults/NoResults';
 
 export class Dogs extends Component {
   static propTypes = {
-    breeds: PropTypes.arrayOf(PropTypes.string).isRequired,
     dogs: PropTypes.arrayOf(PropTypes.string).isRequired,
     isLoading: PropTypes.bool.isRequired,
     offset: PropTypes.number.isRequired,
     limit: PropTypes.number.isRequired,
-    fetchBreeds: PropTypes.func.isRequired,
     setPaginationOffset: PropTypes.func.isRequired,
   };
-
-  componentDidMount() {
-    if (this.props.breeds && !this.props.breeds.length) {
-      this.props.fetchBreeds();
-    }
-  }
 
   onClick = id => () => console.log('Clicked!', id);
 

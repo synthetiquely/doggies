@@ -4,10 +4,32 @@ import { connect } from 'react-redux';
 import { Form } from '../Form/Form';
 import { Select } from '../Select/Select';
 import { Button } from '../Button/Button';
-import { setSelectedBreed } from '../../store/actions/breedsActions';
+import {
+  fetchBreeds,
+  setSelectedBreed,
+} from '../../store/actions/breedsActions';
 import { fetchRandomDogs } from '../../store/actions/dogsActions';
 
 export class DogsFormComponent extends Component {
+  static propTypes = {
+    selectedBreed: PropTypes.string,
+    breeds: PropTypes.arrayOf(PropTypes.string),
+    setSelectedBreed: PropTypes.func.isRequired,
+    fetchRandomDogs: PropTypes.func.isRequired,
+    fetchBreeds: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    selectedBreed: '',
+    breeds: [],
+  };
+
+  componentDidMount() {
+    if (this.props.breeds && !this.props.breeds.length) {
+      this.props.fetchBreeds();
+    }
+  }
+
   handleChange = (event) => {
     const { value } = event.target;
     if (this.props.selectedBreed !== value) {
@@ -23,7 +45,7 @@ export class DogsFormComponent extends Component {
     const { selectedBreed, breeds } = this.props;
     return (
       <Form>
-        <p style={{ fontWeight: 600 }}>CHOOSE THE BREED</p>
+        <p style={{ fontWeight: 600, margin: '5px 0' }}>Choose the breed</p>
         <Select
           id="breeds-select"
           name="breeds-select"
@@ -31,26 +53,14 @@ export class DogsFormComponent extends Component {
           options={breeds}
           onChange={this.handleChange}
         />
-        <p style={{ fontWeight: 600 }}>-- OR -- </p>
+        <p style={{ fontWeight: 600, margin: '5px 0' }}>-- or -- </p>
         <Button type="button" colored onClick={this.handleClick}>
-          GO ALL RANDOM
+          Go all random
         </Button>
       </Form>
     );
   }
 }
-
-DogsFormComponent.defaultProps = {
-  selectedBreed: '',
-  breeds: [],
-};
-
-DogsFormComponent.propTypes = {
-  selectedBreed: PropTypes.string,
-  breeds: PropTypes.arrayOf(PropTypes.string),
-  setSelectedBreed: PropTypes.func.isRequired,
-  fetchRandomDogs: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = state => ({
   selectedBreed: state.breeds.selectedBreed,
@@ -60,6 +70,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setSelectedBreed: breed => dispatch(setSelectedBreed(breed)),
   fetchRandomDogs: () => dispatch(fetchRandomDogs()),
+  fetchBreeds: () => dispatch(fetchBreeds()),
 });
 
 export const DogsForm = connect(mapStateToProps, mapDispatchToProps)(DogsFormComponent);

@@ -5,7 +5,7 @@ import { Spinner } from '../Spinner/Spinner';
 
 const StyledButton = styled.button`
   position: relative;
-  padding: 10px 10px 25px 10px;
+  padding: 5px;
   text-align: center;
   font-size: 16px;
   color: ${props => (props.colored ? '#fff' : '#000')};

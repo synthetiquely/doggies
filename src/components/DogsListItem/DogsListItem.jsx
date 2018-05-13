@@ -36,6 +36,7 @@ export class DogsListItem extends Component {
         alt="Doggo"
         imageLoaded={imageLoaded}
         errored={errored}
+        cropped
         onLoad={this.onLoad}
         onError={this.onError}
         onClick={onClick}

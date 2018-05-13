@@ -22,7 +22,7 @@ export const SelectOptions = styled.select`
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 15px;
+  padding: 5px;
   appearance: none;
   border: none;
   outline: none;

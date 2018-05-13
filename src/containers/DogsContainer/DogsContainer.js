@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { Dogs } from '../../components/Dogs/Dogs';
 import { selectPagiableDogs } from '../../store/selectors/selectors';
-import { fetchBreeds } from '../../store/actions/breedsActions';
 import { setPaginationOffset } from '../../store/actions/helpersActions';
 
 const mapStateToProps = state => ({
@@ -13,7 +12,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchBreeds: () => dispatch(fetchBreeds()),
   setPaginationOffset: offset => dispatch(setPaginationOffset(offset)),
 });
 
