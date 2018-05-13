@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { css } from 'emotion';
 import { fetchBreeds } from '../../store/actions/breedsActions';
+import { InfiniteScroll } from '../InfiniteScroll/InfiniteScroll';
 import { DogsList } from '../DogsList/DogsList';
 import { NoResults } from '../NoResults/NoResults';
-import { Spinner } from '../Spinner/Spinner';
 
 export class DogsComponent extends Component {
   static propTypes = {
@@ -31,20 +30,12 @@ export class DogsComponent extends Component {
     }
 
     return (
-      <React.Fragment>
+      <InfiniteScroll
+        isLoading={isLoading}
+        loadMore={() => console.log('loading more')}
+      >
         <DogsList images={dogs} onClick={this.onClick} />
-        {isLoading ? (
-          <div
-            className={css`
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            `}
-          >
-            <Spinner />
-          </div>
-        ) : null}
-      </React.Fragment>
+      </InfiniteScroll>
     );
   }
 }
