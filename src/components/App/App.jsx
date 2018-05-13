@@ -3,7 +3,7 @@ import React from 'react';
 import { Layout } from '../Layout/Layout';
 import { Header } from '../Header/Header';
 import { Content } from '../Content/Content';
-import { Dogs } from '../Dogs/Dogs';
+import { DogsContainer } from '../../containers/DogsContainer/DogsContainer';
 import { DogsForm } from '../DogsForm/DogsForm';
 
 export const App = () => (
@@ -12,7 +12,7 @@ export const App = () => (
       <DogsForm />
     </Header>
     <Content>
-      <Dogs />
+      <DogsContainer />
     </Content>
   </Layout>
 );

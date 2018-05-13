@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import debounce from 'debounce';
 import { css } from 'emotion';
 import { Spinner } from '../Spinner/Spinner';
 
@@ -12,6 +13,11 @@ export class InfiniteScroll extends Component {
       PropTypes.node,
     ]).isRequired,
   };
+
+  constructor(props) {
+    super(props);
+    this.loadMore = debounce(this.loadMore.bind(this), 250);
+  }
 
   componentDidMount = () => {
     window.addEventListener('scroll', this.onScroll, {
@@ -34,7 +40,7 @@ export class InfiniteScroll extends Component {
         document.documentElement.clientHeight ||
         document.body.clientHeight;
 
-      if (scrollTop + windowHeight >= containerHeight - 300) {
+      if (scrollTop + windowHeight >= containerHeight) {
         this.loadMore();
       }
     }
