@@ -1,24 +1,19 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Layout } from '../Layout/Layout';
 import { Header } from '../Header/Header';
 import { Content } from '../Content/Content';
 import { DogsContainer } from '../../containers/DogsContainer/DogsContainer';
 import { Dog } from '../Dog/Dog';
 import { DogsForm } from '../DogsForm/DogsForm';
-
-const Anchor = () => (
-  <Link href="/" to="/">
-    Go back to the gallery
-  </Link>
-);
+import { GoBack } from '../GoBack/GoBack';
 
 export const App = () => (
   <Layout>
     <Header>
       <Switch>
         <Route exact path="/" component={DogsForm} />
-        <Route exact path="/dog" component={Anchor} />
+        <Route exact path="/dog" component={GoBack} />
       </Switch>
     </Header>
     <Content>
