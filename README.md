@@ -25,7 +25,7 @@ API used: [Dog API](https://dog.ceo/dog-api/).
 * Webpack
 
 ## Demo
-Demo is not available yet.
+Demo available here: https://doggies-iwjvyhveko.now.sh
 
 ## Author
 [Anatoly Belobrovik](https://github.com/synthetiquely/)
