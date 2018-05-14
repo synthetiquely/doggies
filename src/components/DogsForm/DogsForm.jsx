@@ -34,7 +34,7 @@ export class DogsFormComponent extends Component {
   handleChange = (event) => {
     const { value } = event.target;
     if (this.props.selectedBreed !== value) {
-      this.props.setSelectedBreed(event.target.value);
+      this.props.setSelectedBreed(value);
     }
   };
 
@@ -50,6 +50,7 @@ export class DogsFormComponent extends Component {
         <Select
           id="breeds-select"
           name="breeds-select"
+          data-testid="breeds-select"
           selected={selectedBreed}
           options={breeds}
           onChange={this.handleChange}

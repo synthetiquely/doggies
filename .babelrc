@@ -13,6 +13,12 @@
     ],
     "react"
   ],
+  "env": {
+    "test": {
+      "presets": [["env"], "react"],
+      "plugins": ["transform-class-properties"]
+    }
+  },
   "plugins": [
     ["emotion", { "hoist": true }],
     "react-hot-loader/babel",
