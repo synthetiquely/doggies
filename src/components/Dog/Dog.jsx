@@ -55,4 +55,6 @@ const mapDispatchToProps = dispatch => ({
   fetchRandomDog: () => dispatch(fetchRandomDog()),
 });
 
-export const Dog = connect(mapStateToProps, mapDispatchToProps)(DogComponent);
+const Dog = connect(mapStateToProps, mapDispatchToProps)(DogComponent);
+
+export default Dog;

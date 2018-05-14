@@ -21,4 +21,6 @@ const mapDispatchToProps = dispatch => ({
   setSelectedDog: dog => dispatch(setSelectedDog(dog)),
 });
 
-export const DogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dogs);
+const DogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dogs);
+
+export default DogsContainer;
