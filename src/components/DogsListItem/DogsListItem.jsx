@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ImageContainer } from '../Image/ImageContainer';
 import { Image } from '../Image/Image';
 
 export class DogsListItem extends Component {
   static propTypes = {
     image: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
   };
 
   state = {
@@ -25,22 +25,22 @@ export class DogsListItem extends Component {
     });
   };
 
-  // @TODO: Image Loading, image loaded and image errored state
   render() {
     const { imageLoaded, errored } = this.state;
-    const { image, onClick } = this.props;
+    const { image, ...rest } = this.props;
     return (
-      <Image
-        tabIndex={0}
-        src={image}
-        alt="Doggo"
-        imageLoaded={imageLoaded}
-        errored={errored}
-        cropped
-        onLoad={this.onLoad}
-        onError={this.onError}
-        onClick={onClick}
-      />
+      <ImageContainer errored={errored}>
+        <Image
+          tabIndex={0}
+          src={image}
+          alt="Doggo"
+          cropped
+          imageLoaded={imageLoaded}
+          onLoad={this.onLoad}
+          onError={this.onError}
+          {...rest}
+        />
+      </ImageContainer>
     );
   }
 }

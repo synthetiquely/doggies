@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Form } from '../Form/Form';
 import { Select } from '../Select/Select';
 import { Button } from '../Button/Button';
+import { Paragraph } from '../Paragraph/Paragraph';
 import {
   fetchBreeds,
   setSelectedBreed,
@@ -45,7 +46,7 @@ export class DogsFormComponent extends Component {
     const { selectedBreed, breeds } = this.props;
     return (
       <Form>
-        <p style={{ fontWeight: 600, margin: '5px 0' }}>Choose the breed</p>
+        <Paragraph>Choose the breed</Paragraph>
         <Select
           id="breeds-select"
           name="breeds-select"
@@ -53,7 +54,7 @@ export class DogsFormComponent extends Component {
           options={breeds}
           onChange={this.handleChange}
         />
-        <p style={{ fontWeight: 600, margin: '5px 0' }}>-- or -- </p>
+        <Paragraph> OR </Paragraph>
         <Button type="button" colored onClick={this.handleClick}>
           Go all random
         </Button>

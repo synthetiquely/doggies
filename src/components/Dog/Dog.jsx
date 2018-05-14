@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { css } from 'emotion';
-import { Image } from '../Image/Image';
+import { DogsListItem } from '../DogsListItem/DogsListItem';
 import { Button } from '../Button/Button';
 import { fetchRandomDog } from '../../store/actions/dogsActions';
+
+const containerStyles = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+`;
 
 export class DogComponent extends Component {
   static propTypes = {
@@ -23,25 +31,17 @@ export class DogComponent extends Component {
   render() {
     const { selectedDog } = this.props;
     return (
-      <div
-        className={css`
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 10px 0;
-        `}
-      >
-        {selectedDog ? <Image src={selectedDog} alt="dog" /> : null}
+      <div className={containerStyles}>
         <div
           className={css`
-            padding-top: 20px;
+            padding-bottom: 20px;
           `}
         >
           <Button colored onClick={this.onClick}>
             Show me more dogs
           </Button>
         </div>
+        {selectedDog ? <DogsListItem image={selectedDog} /> : null}
       </div>
     );
   }
