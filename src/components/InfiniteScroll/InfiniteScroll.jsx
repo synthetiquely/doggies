@@ -40,7 +40,7 @@ export class InfiniteScroll extends Component {
         document.documentElement.clientHeight ||
         document.body.clientHeight;
 
-      if (scrollTop + windowHeight >= containerHeight) {
+      if (scrollTop + windowHeight >= containerHeight - 300) {
         this.loadMore();
       }
     }
