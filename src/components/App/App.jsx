@@ -7,6 +7,7 @@ import { DogsContainer } from '../../containers/DogsContainer/DogsContainer';
 import { Dog } from '../Dog/Dog';
 import { DogsForm } from '../DogsForm/DogsForm';
 import { GoBack } from '../GoBack/GoBack';
+import { Error } from '../Error/Error';
 
 export const App = () => (
   <Layout>
@@ -22,5 +23,6 @@ export const App = () => (
         <Route exact path="/dog" component={Dog} />
       </Switch>
     </Content>
+    <Error />
   </Layout>
 );
